@@ -1,0 +1,53 @@
+
+export CUDA_VISIBLE_DEVICES=0
+model_name="SoftShape"
+
+datasets=(
+    "ACSF1" "Adiac" "AllGestureWiimoteX" "AllGestureWiimoteY" "AllGestureWiimoteZ"
+    "ArrowHead" "BME" "Beef" "BeetleFly" "BirdChicken"
+    "CBF" "Car" "Chinatown" "ChlorineConcentration" "CinCECGTorso"
+    "Coffee" "Computers" "CricketX" "CricketY" "CricketZ"
+    "Crop" "DiatomSizeReduction" "DistalPhalanxOutlineAgeGroup" "DistalPhalanxOutlineCorrect" "DistalPhalanxTW"
+    "DodgerLoopDay" "DodgerLoopGame" "DodgerLoopWeekend" "ECG200" "ECG5000"
+    "ECGFiveDays" "EOGHorizontalSignal" "EOGVerticalSignal" "Earthquakes" "ElectricDevices"
+    "EthanolLevel" "FaceAll" "FaceFour" "FacesUCR" "FiftyWords"
+    "Fish" "FordA" "FordB" "FreezerRegularTrain" "FreezerSmallTrain"
+    "Fungi" "GestureMidAirD1" "GestureMidAirD2" "GestureMidAirD3" "GesturePebbleZ1"
+    "GesturePebbleZ2" "GunPoint" "GunPointAgeSpan" "GunPointMaleVersusFemale" "GunPointOldVersusYoung"
+    "Ham" "HandOutlines" "Haptics" "Herring" "HouseTwenty"
+    "InlineSkate" "InsectEPGRegularTrain" "InsectEPGSmallTrain" "InsectWingbeatSound" "ItalyPowerDemand"
+    "LargeKitchenAppliances" "Lightning2" "Lightning7" "Mallat" "Meat"
+    "MedicalImages" "MelbournePedestrian" "MiddlePhalanxOutlineAgeGroup" "MiddlePhalanxOutlineCorrect" "MiddlePhalanxTW"
+    "MixedShapesRegularTrain" "MixedShapesSmallTrain" "MoteStrain" "NonInvasiveFetalECGThorax1" "NonInvasiveFetalECGThorax2"
+    "OSULeaf" "OliveOil" "PLAID" "PhalangesOutlinesCorrect" "Phoneme"
+    "PickupGestureWiimoteZ" "PigAirwayPressure" "PigArtPressure" "PigCVP" "Plane"
+    "PowerCons" "ProximalPhalanxOutlineAgeGroup" "ProximalPhalanxOutlineCorrect" "ProximalPhalanxTW" "RefrigerationDevices"
+    "Rock" "ScreenType" "SemgHandGenderCh2" "SemgHandMovementCh2" "SemgHandSubjectCh2"
+    "ShakeGestureWiimoteZ" "ShapeletSim" "ShapesAll" "SmallKitchenAppliances" "SmoothSubspace"
+    "SonyAIBORobotSurface1" "SonyAIBORobotSurface2" "StarLightCurves" "Strawberry" "SwedishLeaf"
+    "Symbols" "SyntheticControl" "ToeSegmentation1" "ToeSegmentation2" "Trace"
+    "TwoLeadECG" "TwoPatterns" "UMD" "UWaveGestureLibraryAll" "UWaveGestureLibraryX"
+    "UWaveGestureLibraryY" "UWaveGestureLibraryZ" "Wafer" "Wine" "WordSynonyms"
+    "Worms" "WormsTwoClass" "Yoga"
+)
+
+for dataset in "${datasets[@]}"; do
+    python -u run.py \
+      --task_name classification \
+      --is_training 1 \
+      --root_path "/root/data/UCR/${dataset}/" \
+      --model_id "${dataset}" \
+      --model "${model_name}" \
+      --data UCR \
+      --e_layers 2 \
+      --batch_size 16 \
+      --dropout 0.2 \
+      --d_model 128 \
+      --d_ff 256 \
+      --top_k 3 \
+      --des "Exp" \
+      --itr 1 \
+      --learning_rate 0.001 \
+      --train_epochs 100 \
+      --patience 10
+done

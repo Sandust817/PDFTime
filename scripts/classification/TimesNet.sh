@@ -1,0 +1,164 @@
+export CUDA_VISIBLE_DEVICES=0
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/EthanolConcentration/ \
+  --model_id EthanolConcentration \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 2 \
+  --batch_size 16 \
+  --d_model 16 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/FaceDetection/ \
+  --model_id FaceDetection \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 2 \
+  --batch_size 16 \
+  --d_model 64 \
+  --num_kernels 4 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/Handwriting/ \
+  --model_id Handwriting \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 2 \
+  --batch_size 16 \
+  --d_model 32 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/Heartbeat/ \
+  --model_id Heartbeat \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 3 \
+  --batch_size 16 \
+  --d_model 16 \
+  --d_ff 32 \
+  --top_k 1 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/JapaneseVowels/ \
+  --model_id JapaneseVowels \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 2 \
+  --batch_size 16 \
+  --d_model 16 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 60 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/PEMS-SF/ \
+  --model_id PEMS-SF \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 6 \
+  --batch_size 16 \
+  --d_model 64 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/SelfRegulationSCP1/ \
+  --model_id SelfRegulationSCP1 \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 3 \
+  --batch_size 16 \
+  --d_model 16 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/SelfRegulationSCP2/ \
+  --model_id SelfRegulationSCP2 \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 3 \
+  --batch_size 16 \
+  --d_model 32 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/SpokenArabicDigits/ \
+  --model_id SpokenArabicDigits \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 2 \
+  --batch_size 16 \
+  --d_model 32 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
+
+python -u run.py \
+  --task_name classification \
+  --is_training 1 \
+  --root_path /root/data/UEA/UWaveGestureLibrary/ \
+  --model_id UWaveGestureLibrary \
+  --model TimesNet \
+  --data UEA \
+  --e_layers 2 \
+  --batch_size 16 \
+  --d_model 32 \
+  --des 'Exp' \
+  --itr 1 \
+  --learning_rate 0.001 \
+  --train_epochs 30 \
+  --patience 10
