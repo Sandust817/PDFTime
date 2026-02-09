@@ -5,7 +5,7 @@ This repository provides the official implementation of the proposed prototype-g
 # Repository Structure
 
 The codebase is organized to clearly separate data processing, model definition, prototype mechanisms, and experimental pipelines, facilitating reproducibility and extensibility.
-
+```
 PDFTime/
 ├── README.md
 ├── run.py
@@ -16,3 +16,4 @@ PDFTime/
 ├── scripts/
 ├── checkpoints/
 ├── results/
+```
