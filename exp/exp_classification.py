@@ -95,7 +95,7 @@ class Exp_Classification(Exp_Basic):
     def train(self, setting,pov=1):
         prototype_warmup_epochs=self.args.warm_up
         train_data, train_loader = self._get_data(flag='TRAIN')
-        vali_data, vali_loader = self._get_data(flag='TEST')
+        vali_data, vali_loader = self._get_data(flag='VALID')
         test_data, test_loader = self._get_data(flag='TEST')
 
         path = os.path.join(self.args.checkpoints, setting)
@@ -180,9 +180,6 @@ class Exp_Classification(Exp_Basic):
 
         preds = []
         trues = []
-        folder_path = './test_results/' + setting + '/'
-        if not os.path.exists(folder_path):
-            os.makedirs(folder_path)
 
         self.model.eval()
         with torch.no_grad():
